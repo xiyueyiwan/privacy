@@ -1,3 +1,4 @@
-tensorflow
+tensorflow>=1.14
 mpmath
-scipy
+scipy>=0.17
+dm-tree~=0.1.1

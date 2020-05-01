@@ -14,18 +14,18 @@ issues currently open.
 ### Dependencies
 
 This library uses [TensorFlow](https://www.tensorflow.org/) to define machine
-learning models. Therefore, installing TensorFlow is a pre-requisite. You can
-find instructions [here](https://www.tensorflow.org/install/). For better
-performance, it is also recommended to install TensorFlow with GPU support
-(detailed instructions on how to do this are available in the TensorFlow
+learning models. Therefore, installing TensorFlow (>= 1.14) is a pre-requisite.
+You can find instructions [here](https://www.tensorflow.org/install/). For
+better performance, it is also recommended to install TensorFlow with GPU
+support (detailed instructions on how to do this are available in the TensorFlow
 installation documentation).
 
 In addition to TensorFlow and its dependencies, other prerequisites are:
 
   * `scipy` >= 0.17
-  
+
   * `mpmath` (for testing)
-  
+
   * `tensorflow_datasets` (for the RNN tutorial `lm_dpsgd_tutorial.py` only)
 
 ### Installing TensorFlow Privacy
@@ -50,12 +50,16 @@ and then cloning your fork rather than cloning this repository directly.
 ## Contributing
 
 Contributions are welcomed! Bug fixes and new features can be initiated through
-Github pull requests. To speed the code review process, we ask that:
+GitHub pull requests. To speed the code review process, we ask that:
 
 *   When making code contributions to TensorFlow Privacy, you follow the `PEP8
     with two spaces` coding style (the same as the one used by TensorFlow) in
     your pull requests. In most cases this can be done by running `autopep8 -i
     --indent-size 2 <file>` on the files you have edited.
+
+*   You should also check your code with pylint and TensorFlow's pylint
+    [configuration file](https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/tools/ci_build/pylintrc)
+    by running `pylint --rcfile=/path/to/the/tf/rcfile <edited file.py>`.
 
 *   When making your first pull request, you
     [sign the Google CLA](https://cla.developers.google.com/clas)
@@ -66,14 +70,14 @@ Github pull requests. To speed the code review process, we ask that:
 ## Tutorials directory
 
 To help you get started with the functionalities provided by this library, we
-provide a detailed walkthrough [here](tutorials/walkthrough/walkthrough.md) that
+provide a detailed walkthrough [here](tutorials/walkthrough/README.md) that
 will teach you how to wrap existing optimizers
 (e.g., SGD, Adam, ...) into their differentially private counterparts using
 TensorFlow (TF) Privacy. You will also learn how to tune the parameters
 introduced by differentially private optimization and how to
 measure the privacy guarantees provided using analysis tools included in TF
 Privacy.
-  
+
 In addition, the
 `tutorials/` folder comes with scripts demonstrating how to use the library
 features. The list of tutorials is described in the README included in the
@@ -88,18 +92,25 @@ will not break.
 
 This folder contains code to reproduce results from research papers related to
 privacy in machine learning. It is not maintained as carefully as the tutorials
-directory, but rather intended as a convenient archive. 
+directory, but rather intended as a convenient archive.
+
+## TensorFlow 2.x
+
+At the moment, TensorFlow Privacy does not generally work with TensorFlow 2.x.
+However, as of 2020-04-24. there is a [RFC to revamp Keras optimizers](https://github.com/tensorflow/community/pull/234)
+that will enable this. Once this is done, we will update TensorFlow Privacy
+as soon as possible. Thank you for your patience.
 
 ## Remarks
 
 The content of this repository supersedes the following existing folder in the
 tensorflow/models [repository](https://github.com/tensorflow/models/tree/master/research/differential_privacy)
-  
+
 ## Contacts
-  
+
 If you have any questions that cannot be addressed by raising an issue, feel
-free to contact: 
-  
+free to contact:
+
 * Galen Andrew (@galenmandrew)
 * Steve Chien (@schien1729)
 * Nicolas Papernot (@npapernot)
